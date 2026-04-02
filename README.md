@@ -31,6 +31,7 @@ Here you can find and add content about Zettelkasten in a [Wiki](https://github.
 **Note** to software developers:
 > This information is only relevant to software developers.
 > To build the Zettelkasten, you need a Java Development Kit (JDK) for Java 21+ and Maven 3.
+> Ensure `JAVA_HOME` points to your JDK 21+ installation, because Maven toolchains are configured from `JAVA_HOME`.
 
 To get a local repository, use Git:
 
