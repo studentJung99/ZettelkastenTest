@@ -361,6 +361,8 @@ public class CSettingsDlg extends javax.swing.JDialog {
 				jComboBoxLocale.setSelectedIndex(2);
 			} else if (lang.equalsIgnoreCase("pt")) {
 				jComboBoxLocale.setSelectedIndex(3);
+			} else if (lang.equalsIgnoreCase("ko")) {
+				jComboBoxLocale.setSelectedIndex(4);
 			} else {
 				jComboBoxLocale.setSelectedIndex(0);
 			}
@@ -1694,6 +1696,9 @@ public class CSettingsDlg extends javax.swing.JDialog {
 		case 3:
 			settings.setLanguage("pt");
 			break;
+		case 4:
+			settings.setLanguage("ko");
+			break;
 		default:
 			settings.setLanguage("en");
 			break;
@@ -2146,7 +2151,7 @@ public class CSettingsDlg extends javax.swing.JDialog {
 		jComboBoxManualTimestamp.setName("jComboBoxManualTimestamp"); // NOI18N
 
 		jComboBoxLocale.setModel(new javax.swing.DefaultComboBoxModel<String>(
-				new String[] { "English", "German (Deutsch)", "Spanish (Espanol)", "Portuguese (Brazil)" }));
+				new String[] { "English", "German (Deutsch)", "Spanish (Espanol)", "Portuguese (Brazil)", "Korean (한국어)" }));
 		jComboBoxLocale.setName("jComboBoxLocale"); // NOI18N
 
 		jLabel15.setText(resourceMap.getString("jLabel15.text")); // NOI18N

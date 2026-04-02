@@ -552,10 +552,12 @@
                 <Component class="javax.swing.JComboBox" name="jComboBoxLocale">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
+                      <StringArray count="5">
                         <StringItem index="0" value="English"/>
                         <StringItem index="1" value="German (Deutsch)"/>
                         <StringItem index="2" value="Spanish (Espanol)"/>
+                        <StringItem index="3" value="Portuguese (Brazil)"/>
+                        <StringItem index="4" value="Korean (한국어)"/>
                       </StringArray>
                     </Property>
                     <Property name="name" type="java.lang.String" value="jComboBoxLocale" noResource="true"/>

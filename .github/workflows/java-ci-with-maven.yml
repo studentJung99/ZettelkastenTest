@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu' # See 'Supported distributions' for available options
-          java-version: 8
+          java-version: 21
       - name: Show Toolchain
         run: cat ~/.m2/toolchains.xml
       - name: Build with Maven
@@ -41,7 +41,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu' # See 'Supported distributions' for available options
-          java-version: 8
+          java-version: 21
       - name: Show Toolchain
         run: cat ~/.m2/toolchains.xml
       - name: Build with Maven
