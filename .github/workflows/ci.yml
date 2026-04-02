@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: zulu
-          java-version: '8'
+          java-version: '21'
           cache: maven
 
       # Write toolchains.xml to ~/.m2 (Maven default)
@@ -95,7 +95,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: zulu
-          java-version: '8'
+          java-version: '21'
           cache: maven
 
       # Write toolchains.xml to %USERPROFILE%\.m2 (Maven default)
