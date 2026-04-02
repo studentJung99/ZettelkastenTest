@@ -29,6 +29,9 @@ public class ZettelkastenAppRefactor extends ZettelkastenApp {
             case "pt":
                 locale = new Locale("pt", "BR");
                 break;
+            case "ko":
+                locale = new Locale("ko", "KR");
+                break;
             default:
                 locale = new Locale("en", "GB");
                 break;

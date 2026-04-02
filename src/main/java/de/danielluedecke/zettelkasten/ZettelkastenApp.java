@@ -96,6 +96,7 @@ public class ZettelkastenApp extends SingleFrameApplication {
         String germanCountryCode = new Locale("de", "", "").getLanguage();
         String spanishCountryCode = new Locale("es", "", "").getLanguage();
         String portugueseCountryCode = new Locale("pt", "", "").getLanguage();
+        String koreanCountryCode = new Locale("ko", "", "").getLanguage();
 
         // Defaults to English.
         Locale newLocale = new Locale("en", "GB");
@@ -111,6 +112,9 @@ public class ZettelkastenApp extends SingleFrameApplication {
         }
         if (languageFromSettings.equals(portugueseCountryCode)) {
             newLocale = new Locale("pt", "BR");
+        }
+        if (languageFromSettings.equals(koreanCountryCode)) {
+            newLocale = new Locale("ko", "KR");
         }
 
         Locale.setDefault(newLocale);

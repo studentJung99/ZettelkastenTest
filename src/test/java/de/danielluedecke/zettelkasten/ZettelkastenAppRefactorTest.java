@@ -40,6 +40,10 @@ class ZettelkastenAppRefactorTest {
         locale = Whitebox.invokeMethod(app, "determineLocale", "pt");
         assertEquals(new Locale("pt", "BR"), locale);
 
+        // Test for Korean
+        locale = Whitebox.invokeMethod(app, "determineLocale", "ko");
+        assertEquals(new Locale("ko", "KR"), locale);
+
         // Test for unsupported language (fallback)
         locale = Whitebox.invokeMethod(app, "determineLocale", "fr");
         assertEquals(new Locale("en", "GB"), locale);
