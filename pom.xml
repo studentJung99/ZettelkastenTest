@@ -170,7 +170,7 @@
                         <configuration>
                             <rules>
                                 <requireJavaVersion>
-                                    <version>[21,)</version>
+                                    <version>[21,22)</version>
                                 </requireJavaVersion>
                                 <requireMavenVersion>
                                     <version>[3.9.0,)</version>
@@ -280,6 +280,7 @@
                 </executions>
                 <configuration>
                     <useModulePath>false</useModulePath>
+                    <!-- Needed by JExample reflective cloning on JDK 21+ -->
                     <argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
                     <systemPropertyVariables>
                         <java.awt.headless>true</java.awt.headless>
@@ -422,7 +423,7 @@
                             <manifest/>
                             <icon>src/main/resources/logo/zkn2.ico</icon>
                             <jre>
-                                <minVersion>21</minVersion>
+                                <minVersion>21.0.0</minVersion>
                                 <bundledJre64Bit>false</bundledJre64Bit>
                                 <bundledJreAsFallback>false</bundledJreAsFallback>
                                 <jdkPreference>preferJre</jdkPreference>
@@ -581,7 +582,7 @@
             <version>1.17.2</version>
         </dependency>
 
-        <!-- Stay on javax for compatibility with current XML stack -->
+        <!-- Required on Java 21+ because JAXB is no longer bundled with the JDK -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
