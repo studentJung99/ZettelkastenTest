@@ -1,5 +1,5 @@
 {
-  description = "Zettelkasten (Swing) dev shell with JDK 8 + Maven + IntelliJ IDEA CE + repomix-md";
+  description = "Zettelkasten (Swing) dev shell with JDK 21 + Maven + IntelliJ IDEA CE + repomix-md";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
@@ -13,12 +13,12 @@
         pkgs = import nixpkgs { inherit system; };
         pkgsUnstable = import nixpkgs-unstable { inherit system; };
 
-        # --- JDK 8 selection (unchanged logic) ---
+        # --- JDK 21 selection (unchanged logic) ---
         jdk =
-          if builtins.hasAttr "temurin-bin-8" pkgs then pkgs.temurin-bin-8
-          else if builtins.hasAttr "zulu8" pkgs then pkgs.zulu8
-          else if builtins.hasAttr "jdk8" pkgs then pkgs.jdk8
-          else throw "No JDK 8 available in this nixpkgs.";
+          if builtins.hasAttr "temurin-bin-21" pkgs then pkgs.temurin-bin-21
+          else if builtins.hasAttr "zulu21" pkgs then pkgs.zulu21
+          else if builtins.hasAttr "jdk21" pkgs then pkgs.jdk21
+          else throw "No JDK 21 available in this nixpkgs.";
 
         maven = pkgs.maven;
 
@@ -71,7 +71,7 @@
   <toolchain>
     <type>jdk</type>
     <provides>
-      <version>1.8</version>
+      <version>21</version>
     </provides>
     <configuration>
       <jdkHome>${jdk}</jdkHome>

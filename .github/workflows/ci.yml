@@ -22,8 +22,8 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
 
-      # macOS: Java 8 directly
-      - name: Setup Java 8 (Zulu) on macOS
+      # macOS: Java 21 directly
+      - name: Setup Java 21 (Zulu) on macOS
         if: runner.os == 'macOS'
         uses: actions/setup-java@v4
         with:
@@ -42,7 +42,7 @@ jobs:
             <toolchain>
               <type>jdk</type>
               <provides>
-                <version>1.8</version>
+                <version>21</version>
               </provides>
               <configuration>
                 <jdkHome>${JAVA_HOME}</jdkHome>
@@ -91,7 +91,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Java 8 (Zulu)
+      - name: Setup Java 21 (Zulu)
         uses: actions/setup-java@v4
         with:
           distribution: zulu
@@ -109,7 +109,7 @@ jobs:
             <toolchain>
               <type>jdk</type>
               <provides>
-                <version>1.8</version>
+                <version>21</version>
               </provides>
               <configuration>
                 <jdkHome>${env:JAVA_HOME}</jdkHome>
