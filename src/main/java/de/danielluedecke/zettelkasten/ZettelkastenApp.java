@@ -182,10 +182,21 @@ public class ZettelkastenApp extends SingleFrameApplication {
     @Override
     protected void startup() {
         configureLogger(Constants.zknlogger);
+        registerCustomLookAndFeels();
         initializeTaskData();
         initializeSettings();
         initializeLocale();
         showMainWindow();
+    }
+
+    /**
+     * Registers application-specific Look &amp; Feel implementations with the
+     * Swing UI manager so they are available in the Settings dialog.
+     */
+    void registerCustomLookAndFeels() {
+        javax.swing.UIManager.installLookAndFeel(
+                "Mac OS 8 Platinum",
+                de.danielluedecke.zettelkasten.ui.MacOS8LookAndFeel.class.getName());
     }
 
     public Logger getLogger() {

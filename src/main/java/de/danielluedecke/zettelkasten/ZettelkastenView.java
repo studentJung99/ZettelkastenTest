@@ -2736,28 +2736,36 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
 
 	/**
 	 * Set the default look and feel before drawing the components.
-	 * If the user has changed the default look and feel
-	 * and we need to set something other than the default.
+	 * If the user has not yet chosen a look and feel the Mac OS 8 Platinum
+	 * theme is applied as the application default.
 	 */
 	public void initUIManagerLookAndFeel() {
 		SwingUtilities.invokeLater(() -> {
 			String laf = settings.getLookAndFeel();
-			if (laf == null) {
-				// Set a default LookAndFeel if laf is null
-				laf = UIManager.getCrossPlatformLookAndFeelClassName();
+			if (laf == null || laf.isEmpty()) {
+				// Default to the Mac OS 8 Platinum look and feel.
+				try {
+					de.danielluedecke.zettelkasten.ui.MacOS8LookAndFeel.install();
+					javax.swing.JFrame frame = getFrame();
+					if (frame != null) {
+						SwingUtilities.updateComponentTreeUI(frame);
+					}
+				} catch (Exception e) {
+					Constants.zknlogger.log(java.util.logging.Level.WARNING,
+							"Failed to set MacOS8LookAndFeel", e);
+				}
+				return;
 			}
 			try {
 				UIManager.setLookAndFeel(laf);
+				javax.swing.JFrame frame = getFrame();
+				if (frame != null) {
+					SwingUtilities.updateComponentTreeUI(frame);
+				}
 			} catch (Exception e) {
-				// Handle the exception gracefully, e.g., log the error
-				System.err.println("Failed to set LookAndFeel: " + e.getMessage());
-				return;
+				Constants.zknlogger.log(java.util.logging.Level.WARNING,
+						"Failed to set LookAndFeel", e);
 			}
-
-			// Update the UI after changing the look and feel (not necessary)
-			// This line can be removed as UIManager.setLookAndFeel(laf) already updates the UI
-			// JFrame frame = getFrame();
-			// SwingUtilities.updateComponentTreeUI(frame);
 		});
 	}
 
