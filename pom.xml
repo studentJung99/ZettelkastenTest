@@ -280,7 +280,7 @@
                 </executions>
                 <configuration>
                     <useModulePath>false</useModulePath>
-                    <!-- Needed by JExample reflective cloning on JDK 21+ -->
+                    <!-- Needed by JExample reflective cloning on JDK 21 -->
                     <argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
                     <systemPropertyVariables>
                         <java.awt.headless>true</java.awt.headless>
@@ -582,7 +582,7 @@
             <version>1.17.2</version>
         </dependency>
 
-        <!-- Required on Java 21+ because JAXB is no longer bundled with the JDK -->
+        <!-- Required on Java 21 because JAXB is no longer bundled with the JDK -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
